@@ -1,0 +1,11 @@
+C:\Users\Максим\source\repos\Final game\bin\Debug\Final game.exe.config
+C:\Users\Максим\source\repos\Final game\bin\Debug\Final game.exe
+C:\Users\Максим\source\repos\Final game\bin\Debug\Final game.pdb
+C:\Users\Максим\source\repos\Final game\obj\Debug\Final game.csprojAssemblyReference.cache
+C:\Users\Максим\source\repos\Final game\obj\Debug\Final_game.Images.resources
+C:\Users\Максим\source\repos\Final game\obj\Debug\Final_game.Properties.Resources.resources
+C:\Users\Максим\source\repos\Final game\obj\Debug\Final game.csproj.GenerateResource.cache
+C:\Users\Максим\source\repos\Final game\obj\Debug\Final game.csproj.CoreCompileInputs.cache
+C:\Users\Максим\source\repos\Final game\obj\Debug\Final game.exe
+C:\Users\Максим\source\repos\Final game\obj\Debug\Final game.pdb
+C:\Users\Максим\source\repos\Final game\obj\Debug\Final_game.Form1.resources
