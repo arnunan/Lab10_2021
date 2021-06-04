@@ -16,7 +16,7 @@ namespace Final_game
 
         public int centreX, centreY;
 
-        public int currentFrames, currentAnimation;
+        public int currentFrames, currentAnimation, frameLimit;
 
         public Image spriteSheet;
         #endregion
@@ -36,8 +36,23 @@ namespace Final_game
 
         public void PlayAnimation(Graphics g)
         {
+            if (currentFrames == frameLimit)
+                currentFrames--;
             g.DrawImage(spriteSheet, new Rectangle(new Point(posX, posY), new Size(sizeX, sizeY)),
-                0, 0, sizeX, sizeY, GraphicsUnit.Pixel);
+                sizeX*currentFrames, sizeY*currentAnimation, sizeX, sizeY, GraphicsUnit.Pixel);
+            currentFrames++;
+        }
+
+        public void SetAniConf(int curAni)
+        {
+            if (curAni == 0)
+                frameLimit = 1;
+            if (curAni == 1)
+                frameLimit = 5;
+            if (curAni == 2)
+                frameLimit = 3;
+
+            currentAnimation = curAni;
         }
     }
 }

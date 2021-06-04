@@ -73,9 +73,9 @@ namespace Final_game {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap block {
+        internal static System.Drawing.Bitmap door {
             get {
-                object obj = ResourceManager.GetObject("block", resourceCulture);
+                object obj = ResourceManager.GetObject("door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Final_game {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap door {
+        internal static System.Drawing.Bitmap Heart {
             get {
-                object obj = ResourceManager.GetObject("door", resourceCulture);
+                object obj = ResourceManager.GetObject("Heart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

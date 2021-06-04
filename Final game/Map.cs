@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Final_game
 {
     public class Map
     {
         public List<Environment> Boundaries_1,
-            Boundaries_2,
-            Boundaries_3,
-            Boundaries_4,
+                                 Boundaries_2,
+                                 Boundaries_3,
+                                 Boundaries_4,
                                  Doors;
 
-        private  Image Block = Images.block,
-                             Door = Images.door,
-                             Wall = Images.wall;
+        private readonly Image Door = Images.door,
+                               Wall = Images.wall;
 
         public Map()
         {
@@ -29,16 +24,16 @@ namespace Final_game
             MakeMap();
         }
 
-        public void MakeMap()
+        private void MakeMap()
         {
-            var door1_1 = new Environment(20, 17, 37, 42, Door);
-            var door1_2 = new Environment(128, 125, 37, 42, Door);
-            var door2_1 = new Environment(130, 181, 37, 42, Door);
-            var door2_2 = new Environment(136, 322, 37, 42, Door);
-            var door3_1 = new Environment(180, 281, 37, 42, Door);
-            var door3_2 = new Environment(596, 256, 37, 42, Door);
-            var door4_1 = new Environment(668, 190, 37, 42, Door);
-            var door4_2 = new Environment(913, 17, 37, 42, Door);
+            var door1_1 = new Environment(20, 17, 37, 45, Door);
+            var door1_2 = new Environment(128, 125, 37, 45, Door);
+            var door2_1 = new Environment(134, 181, 37, 45, Door);
+            var door2_2 = new Environment(136, 322, 37, 45, Door);
+            var door3_1 = new Environment(180, 280, 37, 45, Door);
+            var door3_2 = new Environment(596, 256, 37, 45, Door);
+            var door4_1 = new Environment(668, 190, 37, 45, Door);
+            var door4_2 = new Environment(913, 17, 37, 45, Door);
 
             Doors.Add(door1_1);
             Doors.Add(door1_2);
@@ -48,7 +43,6 @@ namespace Final_game
             Doors.Add(door3_2);
             Doors.Add(door4_1);
             Doors.Add(door4_2);
-
 
 
             var wallN = new Environment(0, 0, 985, 15, Wall);
@@ -76,11 +70,11 @@ namespace Final_game
             var block1_3 = new Environment(20, 171, 159, 6, Wall);
             var block2_1 = new Environment(86, 227, 100, 10, Wall);
             var block2_2 = new Environment(113, 298, 70, 1, Wall); 
-            var block3_1 = new Environment(180, 325, 65, 1, Wall);
+            var block3_1 = new Environment(180, 325, 62, 1, Wall);
             var block3_2 = new Environment(385, 322, 76, 1, Wall);
             var block3_3 = new Environment(482, 296, 116, 1, Wall);
-            var block3_4 = new Environment(590, 303, 80, 1, Wall);
-            var block3_5 = new Environment(706, 329, 50, 1, Wall);
+            var block3_4 = new Environment(590, 305, 80, 1, Wall);
+            var block3_5 = new Environment(706, 327, 50, 1, Wall);
             var block4_1 = new Environment(670, 185, 75, 1, Wall);
             var block4_2 = new Environment(860, 186, 25, 1, Wall);
             var block4_3 = new Environment(670, 128, 32, 1, Wall);
@@ -131,7 +125,6 @@ namespace Final_game
             Boundaries_4.Add(block4_5);
             Boundaries_4.Add(block4_6);
             Boundaries_4.Add(block4_7);
-
         }
     }
 }

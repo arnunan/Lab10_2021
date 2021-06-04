@@ -19,7 +19,7 @@ namespace Final_game
 
         public int dx, dy;
 
-        public int idleFrames, runFrames, attackFrames, deathFrames;
+        public int idleFrames, runFrames, attackFrames, deathFrames, hurtFrames;
         public int currentAnimation, currentFrame, frameLimit;
 
         public bool goUp, goDown, goLeft, goRight;
@@ -30,12 +30,12 @@ namespace Final_game
 
         public int health;
 
-        private Random r = new Random();
+        private readonly Random r = new Random();
 
         public Image spriteSheet;
 
         #endregion
-        public Entity(int posX, int posY, int sizeX, int sizeY, int health, Image spriteSheet,  int idleFrames = 1, int runFrames = 1, int attackFrames = 1, int deathFrames = 1)
+        public Entity(int posX, int posY, int sizeX, int sizeY, int health, Image spriteSheet,  int idleFrames = 1, int runFrames = 1, int attackFrames = 1, int deathFrames = 1, int hurtFrames = 4)
         {
             this.posX = posX;
             this.posY = posY;
@@ -45,6 +45,7 @@ namespace Final_game
             this.runFrames = runFrames;
             this.attackFrames = attackFrames;
             this.deathFrames = deathFrames;
+            this.hurtFrames = hurtFrames;
             this.health = health;
             this.spriteSheet = spriteSheet;
 
@@ -68,18 +69,20 @@ namespace Final_game
 
         public void SetAniConf(int curAni)
         {
-            if (curAni == 0 || curAni == 5)
+            if (curAni == 0 || curAni == 6)
                 frameLimit = idleFrames;
-            if (curAni == 1 || curAni == 6)
+            if (curAni == 1 || curAni == 7)
                 frameLimit = runFrames;
-            if (curAni == 2 || curAni == 7)
+            if (curAni == 2 || curAni == 8)
                 frameLimit = attackFrames;
-            if (curAni == 3 || curAni == 8)
+            if (curAni == 3 || curAni == 9)
                 frameLimit = 1;
-            if (curAni == 4 || curAni == 9)
+            if (curAni == 4 || curAni == 10)
                 frameLimit = deathFrames;
+            if (curAni == 5 || curAni == 11)
+                frameLimit = hurtFrames;
 
-            currentAnimation = flip ? curAni % 5 : curAni % 5 + 5;
+            currentAnimation = flip ? curAni % 6 : curAni % 6 + 6;
         }
 
         public void Stop()
@@ -99,7 +102,7 @@ namespace Final_game
         {
             foreach (var e in doors)
             {
-                if (posX + 2 * sizeX / 3 > e.posX && posX < e.posX + e.sizeX && posY + 4 > e.posY && posY < e.posY + e.sizeY)
+                if (Math.Abs(posX + sizeX / 2 - e.posX - e.sizeX / 2) < 20 && Math.Abs(posY + sizeY / 2 - e.posY - e.sizeY / 2) < 10)
                     return true;
             }
             return false;
@@ -118,6 +121,7 @@ namespace Final_game
 
         public void Phisics(List<Environment> Boundaries)
         {
+            dy += a;
             GoingDown(Boundaries);
 
             if (goUp)
@@ -134,6 +138,7 @@ namespace Final_game
                 GoingRight(Boundaries);
                 posX += dx;
             }
+
             if (goLeft)
             {
                 dx = -4;
@@ -144,13 +149,11 @@ namespace Final_game
             posY += dy;
         }
 
-        public void Moving(List<Environment> boundaries)
+        public void Moving()
         {
-            
-
             var jump = r.Next(0, 10);
-            goUp = jump > 7 ? true : false;
-            speedY = jump > 7 ? -10 : 0;
+            goUp = jump > 7;
+            speedY = goUp ? -10 : 0;
         }
 
         public void GoingUp(List<Environment> boundaries)
@@ -203,6 +206,37 @@ namespace Final_game
                 {
                     dx = el.posX + el.sizeX - (posX + 2 * sizeX / 5) + 1;
                 }
+            }
+        }
+
+        public bool BotAttack()
+        {
+            var rnd = r.Next(0,10);
+            Attack = rnd > 8;
+            return Attack;
+        }
+
+        public void GetDamage(bool side, List<Environment> boundaries, int damage)
+        {
+            health -= damage;
+            SetAniConf(5);
+            if (side)
+            {
+                dx = 17;
+                dy = -5;
+                GoingRight(boundaries);
+                GoingUp(boundaries);
+                posX += dx;
+                posY += dy;
+            }
+            else
+            {
+                dx = -17;
+                dy = -5;
+                GoingRight(boundaries);
+                GoingUp(boundaries);
+                posX += dx;
+                posY += dy;
             }
         }
     }

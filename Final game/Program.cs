@@ -16,9 +16,11 @@ namespace Final_game
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form Form1 = new Form1();
-            Form1.Width = 980;
-            Form1.Height = 425;
+            Form Form1 = new Form1() 
+            {
+                Width = 980,
+                Height = 425 
+            };
             Application.Run(Form1);
         }
     }
