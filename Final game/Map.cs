@@ -55,7 +55,7 @@ namespace Final_game
             var wall2_2 = new Environment(27, 335, 61, 70, Wall);
             var wall2_3 = new Environment(112, 366, 85, 15, Wall);
             var wall3_1 = new Environment(175, 235, 245, 41, Wall);
-            var wall3_2 = new Environment(304, 330, 39, 60, Wall);
+            var wall3_2 = new Environment(310, 330, 32, 60, Wall);
             var wall3_3 = new Environment(415, 235, 280, 13, Wall);
             var wall3_4 = new Environment(530, 245, 69, 37, Wall);
             var wall3_5 = new Environment(640, 250, 100, 13, Wall);
@@ -65,7 +65,7 @@ namespace Final_game
             var wall4_3 = new Environment(910, 203, 90, 50, Wall);
             var wall4_4 = new Environment(803, 170, 28, 70, Wall);
 
-            var block1_1 = new Environment(25, 62, 100, 10, Wall);
+            var block1_1 = new Environment(25, 62, 96, 10, Wall);
             var block1_2 = new Environment(72, 113, 136, 10, Wall);
             var block1_3 = new Environment(20, 171, 159, 6, Wall);
             var block2_1 = new Environment(86, 227, 100, 10, Wall);

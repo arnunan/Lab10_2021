@@ -130,6 +130,9 @@
   <data name="hero" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\hero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="lifebar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\lifebar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\wall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

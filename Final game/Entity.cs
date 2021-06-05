@@ -28,7 +28,7 @@ namespace Final_game
 
         public bool flip;
 
-        public int health;
+        public int health, maxHealth;
 
         private readonly Random r = new Random();
 
@@ -49,6 +49,7 @@ namespace Final_game
             this.health = health;
             this.spriteSheet = spriteSheet;
 
+            maxHealth = health;
             currentAnimation = 0;
             currentFrame = 0;
             frameLimit = idleFrames;
@@ -191,7 +192,7 @@ namespace Final_game
         {
             foreach (var el in boundaries)
             {
-                if (posX + 4 * sizeX / 5 < el.posX && posX + 4 * sizeX / 5 + dx >= el.posX && posY + sizeY - 3 > el.posY && posY + 8 < el.posY + el.sizeY)
+                if (posX + 4 * sizeX / 5 < el.posX && posX + 4 * sizeX / 5 + dx >= el.posX && posY + 5*sizeY/6 > el.posY && posY + 8 < el.posY + el.sizeY)
                 {
                     dx = el.posX - (posX + 4 * sizeX / 5) - 1;
                 }

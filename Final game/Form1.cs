@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows;
-using System.Media;
 
 namespace Final_game
 {
@@ -16,7 +9,9 @@ namespace Final_game
     {
         #region Fields
         private readonly Image Hero = Images.hero,
-                               Enemy = Images.скелет;
+                               Enemy = Images.скелет,
+                               Lifebar = Images.lifebar;
+
           
         private readonly Image Wall = Images.wall,
                                Heart = Images.Heart;
@@ -26,8 +21,9 @@ namespace Final_game
         private Entity player, enemy1, enemy2, enemy3, enemy4, enemy5, 
                        heart, heart2;
 
-        private List<Environment> Boundaries_1, Boundaries_2, Boundaries_3, Boundaries_4,
+        private Lifebar lifebar;
 
+        private List<Environment> Boundaries_1, Boundaries_2, Boundaries_3, Boundaries_4,
                                   Doors;
 
         private List<Entity> Enemies_1, Enemies_2, Enemies_3, Enemies_4;
@@ -389,6 +385,8 @@ namespace Final_game
                     r.PlayAnimation(g);
             }
 
+            lifebar = new Lifebar(player);
+            lifebar.Draw(g);
             player.PlayAnimation(g);
 
         }
